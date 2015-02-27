@@ -1,4 +1,5 @@
 # class-swap
 
-#List of Developers
+# List of Developers
+- Stephanie Huang
 - James Hong
