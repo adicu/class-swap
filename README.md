@@ -4,3 +4,4 @@
 - Stephanie Huang
 - James Hong
 - Alyssa Lee
+- Jonathan Sun
