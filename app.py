@@ -1,5 +1,3 @@
-# main app.py for class-swap
-
 from flask import Flask
 
 app = Flask(__name__)
