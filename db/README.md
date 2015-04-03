@@ -10,7 +10,7 @@
     last_name:
 }
 ```
-* available (available/posted sections)
+* listed (user-listed sections)
 ```
 {
     uni:
