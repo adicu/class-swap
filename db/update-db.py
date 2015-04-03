@@ -3,10 +3,12 @@ import pymongo, json
 MONGODB_URI = 'mongodb://parser:parser@ds049661.mongolab.com:49661/class-swap'
 CURRENT_TERM = "20151"    # update for every term
 COURSE_FILENAME = "./doc.json"
+# relevant keys from course data provided by CUIT
 KEYS = ['Term', 'Course', 'PrefixName', 'DepartmentCode', 'DepartmentName', 
         'CallNumber', 'NumEnrolled', 'MaxSize', 'CourseTitle', 'CourseSubtitle', 
         'PrefixLongname', 'Meets1', 'Meets2', 'Meets3', 'Meets4', 'Meets5', 'Meets6', 
         'Instructor1Name']
+# relevant classes
 CLASSES = ["SCNC1100", "HUMA1121", "HUMA1123", "HUMA1001", "HUMA1002",
            "COCI1101", "COCI1102", "ENGL1010", "ENGL1011", "ENGL1012",
            "ENGL1013", "ENGL1014", "ENGL1020"]             
