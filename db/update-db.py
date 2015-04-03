@@ -7,7 +7,10 @@ KEYS = ['Term', 'Course', 'PrefixName', 'DepartmentCode', 'DepartmentName',
         'CallNumber', 'NumEnrolled', 'MaxSize', 'CourseTitle', 'CourseSubtitle', 
         'PrefixLongname', 'Meets1', 'Meets2', 'Meets3', 'Meets4', 'Meets5', 'Meets6', 
         'Instructor1Name']
-
+CLASSES = ["SCNC1100", "HUMA1121", "HUMA1123", "HUMA1001", "HUMA1002",
+           "COCI1101", "COCI1102", "ENGL1010", "ENGL1011", "ENGL1012",
+           "ENGL1013", "ENGL1014", "ENGL1020"]             
+             
 def get_courses():
     client = pymongo.MongoClient(MONGODB_URI)
     db = client['class-swap']
@@ -16,18 +19,21 @@ def get_courses():
 def parse(course_file):
     '''Parse JSON data'''
     raw_data = json.load(course_file)
-    # relevant keys are:
-    # term, course, prefixname, departmentcode, departmentname, callnumber, numenrolled, maxsize, coursetitle, coursesubtitle, prefixlongname, meets#, instructorname
-    
+   
     course_data = []
     # pull in relevant courses and data
     for course in raw_data:
         entry = {}
-        if course['Term'] == CURRENT_TERM and course['DepartmentCode'] == "AHAR":
+        if course['Term'] != CURRENT_TERM:
+            continue
+        for c in CLASSES:
+            if c not in course['Course']:
+                continue
             for key in KEYS:
                 if course[key] != "":
                     entry[key] = course[key]
             course_data.append(entry)
+            break
 
     return course_data
 
