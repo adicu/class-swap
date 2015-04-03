@@ -1,20 +1,20 @@
 # class-swap
+A project to help students easily find people to switch class sections with. 
+
+# App Structure
+```
+|-- config/      (files for vagrant)
+|-- README.md    (README)
+|-- db/          (files dealing with MongoDB)
+|-- static/      (static files: css, js, images, etc.)
+    \
+    |-- css/
+    |-- js/
+|-- templates/   (HTML template files)
+```
 
 # List of Developers
 - Stephanie Huang
 - James Hong
 - Alyssa Lee
 - Jonathan Sun
-
-# Directory Structure
-## config
-Files for vagrant.
-
-## db
-Files dealing with MongoDB.
-
-## static
-Static front-end files css/ js/ images/ etc.
-
-## templates
-HTML template files.
