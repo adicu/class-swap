@@ -13,8 +13,9 @@
 * listed (user-listed sections)
 ```
 {
-    uni:
-    call_id:
+    uni:                // should correspond with users
+    CallNumber:         // should correspond with courses
+    status:             // open, pending, closed
 }
 * courses (course data from CUIT)
 ```
