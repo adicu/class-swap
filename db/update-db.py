@@ -1,6 +1,5 @@
-import pymongo, json
+import pymongo, json, db
 
-MONGODB_URI = 'mongodb://parser:parser@ds049661.mongolab.com:49661/class-swap'
 CURRENT_TERM = "20151"    # update for every term
 COURSE_FILENAME = "./doc.json"
 # relevant keys from course data provided by CUIT
@@ -11,12 +10,7 @@ KEYS = ['Term', 'Course', 'PrefixName', 'DepartmentCode', 'DepartmentName',
 # relevant classes
 CLASSES = ["SCNC1100", "HUMA1121", "HUMA1123", "HUMA1001", "HUMA1002",
            "COCI1101", "COCI1102", "ENGL1010", "ENGL1011", "ENGL1012",
-           "ENGL1013", "ENGL1014", "ENGL1020"]             
-             
-def get_courses():
-    client = pymongo.MongoClient(MONGODB_URI)
-    db = client['class-swap']
-    return db.courses
+           "ENGL1013", "ENGL1014", "ENGL1020"]
 
 def parse(course_file):
     '''Parse JSON data'''
@@ -39,13 +33,13 @@ def parse(course_file):
 
     return course_data
 
-def update(db, data):
+def update(courses, data):
     for course in data:
         courses.update({'CallNumber': course['CallNumber']}, course, True)
 
 # main function
 if __name__ == "__main__":
-    courses = get_courses()
+    courses = db.get_courses()
     with open(COURSE_FILENAME) as course_file:
         course_data = parse(course_file)
     update(courses, course_data)
