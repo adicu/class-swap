@@ -17,6 +17,7 @@
     CallNumber:         // should correspond with courses
     status:             // open, pending, closed
 }
+```
 * courses (course data from CUIT)
 ```
 For "Course":
@@ -33,4 +34,21 @@ For "Course":
              "ENGL1013"
              "ENGL1014"
              "ENGL1020"
+
+
+{
+    Term:
+    NumEnrolled:
+    PrefixLongname:
+    Course:
+    CourseTitle:
+    DepartmentName:
+    PrefixName:
+    CallNumber:
+    MaxSize:
+    DepartmentCode:
+    InstructorNName:    // where N is a number
+    MeetsN:             // where N is a number
+    CourseSubtitle:
+}
 ```
